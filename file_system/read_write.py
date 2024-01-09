@@ -30,12 +30,32 @@ print(myfile.mode)
 # print("Current directory: ", os.getcwd())
 
 
+# Playing around with readline()
 with open("mydata.txt", encoding="utf-8") as myfile2:
     lineNum = 1
     while True:
         line = myfile2.readline()
         if not line:
             break
-        print("line", lineNum, ":", line, end="")
-        lineNum += 1
+        
+        print("Line", lineNum)
+        wordList = line.split()
+        print("number of words : ", len(wordList))
 
+        print("Word List : ", wordList)
+        charCount = 0
+        for word in wordList:
+            for char in word:
+                charCount += 1
+        print("Number of characters : ", charCount)
+
+        # Checks average word length
+        avgNumChars = charCount/len(wordList)
+        print("Average Word Length: ", avgNumChars)
+
+        lineNum += 1
+        print()
+
+
+
+ 
