@@ -1,27 +1,31 @@
-with open('workfile.txt', 'r', encoding="utf-8") as f:
-    read_data = f.read()
+import os
 
-# we can check that the file is autmatically closed.
-print(read_data)
+with open("mydata.txt", mode='w', encoding="utf-8") as myfile:
+    myfile.write("Some random text\nMore random texts\nAnd some more.")
 
-f.readline()
-f.readline()
-f.readline()
+with open("mydata.txt", encoding="utf-8") as myfile:
+    """
+        read()  - reads everything till it gets to a new line  
+        readline()  - reads everything including new lines
+        readlines() - reads everything in a list, puts each line into a list.
+    """
 
-for line in f:
-    print(line, end='')
+    print(myfile.read())
+"""
+    Checks if myfile was closed by with() method: return True if closed.
+    Checks file name
+    Checks file mode 
+""" 
 
-f.write("This is a test\n")
+print(myfile.closed)
+print(myfile.name)
+print(myfile.mode)
 
 
-value = ('the answer', 42)
-s = str(value)  # convert the tuple to string
-f.write(s)
+# Exploring os modules
 
-
-f = open('workfile', 'rb+')
-f.write(b'0123456789abcdef')
-f.seek(5)      # Go to the 6th byte in the file
-f.read(1)
-f.seek(-3, 2)  # Go to the 3rd byte before the end
-f.read(1)
+os.rename("mydata.txt", "mydata2.txt")
+os.remove("mydata2.txt")
+os.mkdir("mydir")
+os.chdir("mydir")
+print("Current directory: ", os.getcwd())
