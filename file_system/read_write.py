@@ -1,7 +1,7 @@
 import os
 
 with open("mydata.txt", mode='w', encoding="utf-8") as myfile:
-    myfile.write("Some random text\nMore random texts\nAnd some more.")
+    myfile.write("Some random text\nMore random texts\nAnd some more.\n")
 
 with open("mydata.txt", encoding="utf-8") as myfile:
     """
@@ -24,8 +24,18 @@ print(myfile.mode)
 
 # Exploring os modules
 
-os.rename("mydata.txt", "mydata2.txt")
-os.remove("mydata2.txt")
-os.mkdir("mydir")
-os.chdir("mydir")
-print("Current directory: ", os.getcwd())
+# os.rename("mydata.txt", "mydata2.txt")  
+# os.remove("mydata2.txt")
+# os.chdir("mydir")
+# print("Current directory: ", os.getcwd())
+
+
+with open("mydata.txt", encoding="utf-8") as myfile2:
+    lineNum = 1
+    while True:
+        line = myfile2.readline()
+        if not line:
+            break
+        print("line", lineNum, ":", line, end="")
+        lineNum += 1
+
