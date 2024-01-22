@@ -1,5 +1,10 @@
 # A typical Bank acount
 
+"""
+    This class holds the account holder, account balance, an bank name
+    A deposit and withdraw module. 
+"""
+
 class BankAccount:
     def __init__(self, account_holder, account_balance, bank_name = "Wells Fargo"):
         self.holder = account_holder
